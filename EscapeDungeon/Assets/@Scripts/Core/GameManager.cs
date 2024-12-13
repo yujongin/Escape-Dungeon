@@ -61,13 +61,13 @@ public class GameManager : MonoBehaviour
             //    isAbleOpenDoor = false;
             //    Door.GetComponent<OpenDoor>().OpenText.SetActive(false);
             //}
-            if (isAbleOpenChest)
-            {
-                Chest.transform.DOLocalRotate(new Vector3(-90, 0, 0), 1f);
-                Managers.Game.EnableClearPanel();
-                isAbleOpenChest = false;
-                Chest.GetComponent<OPenChest>().OpenText.SetActive(false);
-            }
+            //if (isAbleOpenChest)
+            //{
+            //    Chest.transform.DOLocalRotate(new Vector3(-90, 0, 0), 1f);
+            //    Managers.Game.EnableClearPanel();
+            //    isAbleOpenChest = false;
+            //    Chest.GetComponent<OPenChest>().OpenText.SetActive(false);
+            //}
         }
     }
 

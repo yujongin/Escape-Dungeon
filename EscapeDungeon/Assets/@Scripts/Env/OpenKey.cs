@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class OpenKey : MonoBehaviour
 {
-    BaseInteractionObject door;
+    public BaseInteractionObject Door;
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            door.IsOperatable = true;
+            Door.ChangeOperateState(true);
             gameObject.SetActive(false);
         }
     }

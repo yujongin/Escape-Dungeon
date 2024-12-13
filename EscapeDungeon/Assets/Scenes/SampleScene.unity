@@ -19101,7 +19101,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2, y: 2.75, z: 2.0107412}
   m_Center: {x: -0.8200989, y: 1.375, z: -1.3727987}
---- !u!114 &485969748
+--- !u!114 &485969751
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -19110,10 +19110,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 485969743}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a668b1134d0f1b34d8c70dadc477fb25, type: 3}
+  m_Script: {fileID: 11500000, guid: 201b03726a30e704888442ceadaf5217, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OpenText: {fileID: 1306206836}
+  IsOperatable: 0
+  OpenText: {fileID: 0}
 --- !u!1 &486497256
 GameObject:
   m_ObjectHideFlags: 0
@@ -24288,8 +24289,9 @@ MonoBehaviour:
   ClearPanel: {fileID: 2115622008}
   MenuPanel: {fileID: 1145084394}
   EnemyCount: 5
-  Key: {fileID: 1872200452}
+  InteractionObject: {fileID: 0}
   Door: {fileID: 485969743}
+  Key: {fileID: 1872200452}
   Chest: {fileID: 679261578}
 --- !u!4 &633038202 stripped
 Transform:
@@ -49253,7 +49255,7 @@ PrefabInstance:
       addedObject: {fileID: 485969747}
     - targetCorrespondingSourceObject: {fileID: 3245047377962470163, guid: c18745f275affde43a5fd6c901fac6f1, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 485969748}
+      addedObject: {fileID: 485969751}
   m_SourcePrefab: {fileID: 100100000, guid: c18745f275affde43a5fd6c901fac6f1, type: 3}
 --- !u!1001 &1181283647
 PrefabInstance:
@@ -53793,7 +53795,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1306206837
 RectTransform:
   m_ObjectHideFlags: 0
@@ -75693,6 +75695,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d10b94dc75a5824182aa5096b1c783b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  door: {fileID: 485969751}
 --- !u!65 &1872200457
 BoxCollider:
   m_ObjectHideFlags: 0

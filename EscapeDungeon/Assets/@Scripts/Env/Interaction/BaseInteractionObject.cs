@@ -3,7 +3,7 @@ using UnityEngine;
 
 public abstract class BaseInteractionObject : InitBase
 {
-    public bool IsOperatable;
+    public bool IsOperatable { get; private set; }
     public GameObject OpenText;
     public abstract void Operate();
 
@@ -13,6 +13,7 @@ public abstract class BaseInteractionObject : InitBase
             return false;
 
         OpenText = GetComponentInChildren<TMP_Text>().gameObject;
+        OpenText.SetActive(false);
         return true;
     }
 
@@ -32,4 +33,8 @@ public abstract class BaseInteractionObject : InitBase
         Managers.Game.InteractionObject = null;
     }
 
+    public void ChangeOperateState(bool state)
+    {
+        IsOperatable = state;
+    }
 }

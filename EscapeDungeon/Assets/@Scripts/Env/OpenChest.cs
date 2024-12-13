@@ -24,5 +24,4 @@ public class OPenChest : MonoBehaviour
         Managers.Game.isAbleOpenChest = false;
         OpenText.SetActive(false);
     }
-
 }
