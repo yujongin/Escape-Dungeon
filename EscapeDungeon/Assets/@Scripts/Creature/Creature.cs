@@ -12,8 +12,7 @@ public class Creature : BaseObject
     public float DetectRange;
     public float AttackRange;
     #endregion
-    public Transform Target { get; set; }
-    public bool isDeath = false; 
+    public Transform Target;
     public override bool Init()
     {
         if (base.Init() == false)

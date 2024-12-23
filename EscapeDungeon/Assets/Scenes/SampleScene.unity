@@ -1428,6 +1428,10 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 40ea3fc18c677a440be4af9d6d53e151, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 40ea3fc18c677a440be4af9d6d53e151, type: 3}
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
@@ -3784,14 +3788,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MeshMaterial: {fileID: 2100000, guid: 41d3aca79e51f6d4483e2c32c0e6a8b0, type: 2}
   isDamaged: 0
-  MaxHp: 20
+  isDead: 0
+  MaxHp: 2
   Atk: 3
   MoveSpeed: 3
   RotateSpeed: 500
   DetectRange: 30
   AttackRange: 2
-  isDeath: 0
+  Target: {fileID: 0}
   DeadClip: {fileID: 8300000, guid: 816c879dc9c78514aba4a42f2b47d75f, type: 3}
+  isBoss: 0
 --- !u!95 &77654044
 Animator:
   serializedVersion: 7
@@ -13115,6 +13121,10 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 40ea3fc18c677a440be4af9d6d53e151, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 40ea3fc18c677a440be4af9d6d53e151, type: 3}
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
@@ -19113,7 +19123,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 201b03726a30e704888442ceadaf5217, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsOperatable: 0
   OpenText: {fileID: 0}
 --- !u!1 &486497256
 GameObject:
@@ -24278,21 +24287,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0123cdb62e0440409e3505c9d79a51b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isStart: 0
-  isStart2: 0
-  isClear: 0
-  isGetKey: 0
-  isBossDead: 0
-  isAbleOpenDoor: 0
-  isAbleOpenChest: 0
   GameOverPanel: {fileID: 528311223}
   ClearPanel: {fileID: 2115622008}
   MenuPanel: {fileID: 1145084394}
-  EnemyCount: 5
   InteractionObject: {fileID: 0}
-  Door: {fileID: 485969743}
   Key: {fileID: 1872200452}
-  Chest: {fileID: 679261578}
 --- !u!4 &633038202 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 54e625a01bbee1a4388a670a33be672d, type: 3}
@@ -26017,6 +26016,10 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 40ea3fc18c677a440be4af9d6d53e151, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 40ea3fc18c677a440be4af9d6d53e151, type: 3}
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
@@ -27051,7 +27054,7 @@ PrefabInstance:
       addedObject: {fileID: 679261582}
     - targetCorrespondingSourceObject: {fileID: -3546630837441477689, guid: e7e404782a8ebce4fa1327bf73dd6fd6, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 679261583}
+      addedObject: {fileID: 679261589}
   m_SourcePrefab: {fileID: 100100000, guid: e7e404782a8ebce4fa1327bf73dd6fd6, type: 3}
 --- !u!4 &679261577 stripped
 Transform:
@@ -27089,7 +27092,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.9533043, y: 0.9650022, z: 1.612915}
   m_Center: {x: -0.018680215, y: 0.31749916, z: 1.6262093}
---- !u!114 &679261583
+--- !u!114 &679261589
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -27098,10 +27101,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 679261578}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2aa67dbc4f3636e42a9bc84ca7d07364, type: 3}
+  m_Script: {fileID: 11500000, guid: c3a914553ce2f7f49a3ea3a8bc498bf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OpenText: {fileID: 1595027711}
+  OpenText: {fileID: 0}
 --- !u!1001 &680954217
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38429,14 +38432,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MeshMaterial: {fileID: 2100000, guid: cb865dc278bd7d94dbb37e24a1a4303c, type: 2}
   isDamaged: 0
-  MaxHp: 20
+  isDead: 0
+  MaxHp: 2
   Atk: 3
   MoveSpeed: 3
   RotateSpeed: 500
   DetectRange: 30
   AttackRange: 2
-  isDeath: 0
+  Target: {fileID: 0}
   DeadClip: {fileID: 8300000, guid: 816c879dc9c78514aba4a42f2b47d75f, type: 3}
+  isBoss: 0
 --- !u!95 &983334210
 Animator:
   serializedVersion: 7
@@ -42921,14 +42926,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MeshMaterial: {fileID: 2100000, guid: a7965b1739a649e48b46ca7e18a59d14, type: 2}
   isDamaged: 0
+  isDead: 0
   MaxHp: 40
   Atk: 6
   MoveSpeed: 4
   RotateSpeed: 500
   DetectRange: 30
   AttackRange: 3
-  isDeath: 0
+  Target: {fileID: 0}
   DeadClip: {fileID: 8300000, guid: 816c879dc9c78514aba4a42f2b47d75f, type: 3}
+  isBoss: 1
 --- !u!95 &1083389512
 Animator:
   serializedVersion: 7
@@ -46664,14 +46671,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MeshMaterial: {fileID: 2100000, guid: f5bdd2bd770873146a30bee306417707, type: 2}
   isDamaged: 0
-  MaxHp: 20
+  isDead: 0
+  MaxHp: 2
   Atk: 3
   MoveSpeed: 3
   RotateSpeed: 500
   DetectRange: 30
   AttackRange: 2
-  isDeath: 0
+  Target: {fileID: 0}
   DeadClip: {fileID: 8300000, guid: 816c879dc9c78514aba4a42f2b47d75f, type: 3}
+  isBoss: 0
 --- !u!95 &1154815007
 Animator:
   serializedVersion: 7
@@ -47954,13 +47963,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MeshMaterial: {fileID: 2100000, guid: 1b69fa9346286af4e8530325319f9675, type: 2}
   isDamaged: 0
+  isDead: 0
   MaxHp: 20
   Atk: 5
   MoveSpeed: 6
   RotateSpeed: 600
   DetectRange: 10
   AttackRange: 3
-  isDeath: 0
+  Target: {fileID: 0}
   dashForce: 8
   dashDuration: 0.2
   dashCoolDown: 1
@@ -59545,6 +59555,10 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 40ea3fc18c677a440be4af9d6d53e151, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 40ea3fc18c677a440be4af9d6d53e151, type: 3}
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
@@ -64885,7 +64899,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1595027712
 RectTransform:
   m_ObjectHideFlags: 0
@@ -67789,14 +67803,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MeshMaterial: {fileID: 2100000, guid: faecd47fe1a9b1641bf1314034fb3223, type: 2}
   isDamaged: 0
-  MaxHp: 20
+  isDead: 0
+  MaxHp: 2
   Atk: 3
   MoveSpeed: 3
   RotateSpeed: 500
   DetectRange: 30
   AttackRange: 2
-  isDeath: 0
+  Target: {fileID: 0}
   DeadClip: {fileID: 8300000, guid: 816c879dc9c78514aba4a42f2b47d75f, type: 3}
+  isBoss: 0
 --- !u!95 &1658048122
 Animator:
   serializedVersion: 7
@@ -72902,14 +72918,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MeshMaterial: {fileID: 2100000, guid: b956e49cc8deecf4680bc761776d46e7, type: 2}
   isDamaged: 0
-  MaxHp: 20
+  isDead: 0
+  MaxHp: 2
   Atk: 3
   MoveSpeed: 3
   RotateSpeed: 500
   DetectRange: 30
   AttackRange: 2
-  isDeath: 0
+  Target: {fileID: 0}
   DeadClip: {fileID: 8300000, guid: 816c879dc9c78514aba4a42f2b47d75f, type: 3}
+  isBoss: 0
 --- !u!136 &1798907698
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -75695,7 +75713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d10b94dc75a5824182aa5096b1c783b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door: {fileID: 485969751}
+  Door: {fileID: 485969751}
 --- !u!65 &1872200457
 BoxCollider:
   m_ObjectHideFlags: 0

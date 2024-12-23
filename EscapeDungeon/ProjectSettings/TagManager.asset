@@ -9,6 +9,7 @@ TagManager:
   - Grid
   - Combined Mesh
   - Enemy
+  - Boss
   layers:
   - Default
   - TransparentFX

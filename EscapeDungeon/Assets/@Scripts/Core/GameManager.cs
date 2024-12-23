@@ -1,43 +1,39 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using DG.Tweening;
 using static Define;
 public class GameManager : MonoBehaviour
 {
-    public bool isStart = false;
-    public bool isStart2 = false;
-    public bool isClear = false;
-    public bool isGetKey= false;
-    public bool isBossDead= false;
-    public bool isAbleOpenDoor = false;
-    public bool isAbleOpenChest = false;
     public GameObject GameOverPanel;
     public GameObject ClearPanel;
     public GameObject MenuPanel;
 
-
-    public int EnemyCount = 5;
+    public int enemyCount { get; private set; } = 0;
     public BaseInteractionObject InteractionObject;
-    public GameObject Door;
     public GameObject Key;
-    public GameObject Chest;
 
-
-    Define.EGameState gameState;
+    public Define.EGameState gameState { get; private set; }
+    private void Start()
+    {
+        gameState = EGameState.None;
+    }
     public void EnemyDead()
     {
-        EnemyCount--;
-        if(EnemyCount == 0)
+        enemyCount--;
+        if (enemyCount == 0)
         {
             Key.SetActive(true);
         }
+    }
+    public void AddEnemyCount()
+    {
+        enemyCount++;
     }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             MenuPanel.SetActive(!MenuPanel.activeSelf);
-            if(Time.timeScale == 1)
+            if (Time.timeScale == 1)
             {
                 Time.timeScale = 0;
             }
@@ -47,44 +43,32 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if(Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.C))
         {
-            if(InteractionObject != null)
+            if (InteractionObject != null)
             {
                 InteractionObject.Operate();
             }
-
-            //if (isAbleOpenDoor)
-            //{
-            //    Door.transform.DORotate(new Vector3(0, 90, 0), 1f);
-            //    Managers.Game.isStart2 = true;
-            //    isAbleOpenDoor = false;
-            //    Door.GetComponent<OpenDoor>().OpenText.SetActive(false);
-            //}
-            //if (isAbleOpenChest)
-            //{
-            //    Chest.transform.DOLocalRotate(new Vector3(-90, 0, 0), 1f);
-            //    Managers.Game.EnableClearPanel();
-            //    isAbleOpenChest = false;
-            //    Chest.GetComponent<OPenChest>().OpenText.SetActive(false);
-            //}
         }
     }
 
+    public void ChangeNextState()
+    {
+        gameState++;
+    }
 
-    public void EnableGameOverPanel() 
+    public void EnableGameOverPanel()
     {
         GameOverPanel.SetActive(true);
     }
-    public void EnableClearPanel() 
+    public void EnableClearPanel()
     {
-        isClear = true;
         ClearPanel.SetActive(true);
     }
     public void LoadScene()
     {
         SceneManager.LoadScene(0);
-    }    
+    }
     public void QuitGame()
     {
         Application.Quit();

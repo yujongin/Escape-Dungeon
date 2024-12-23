@@ -8,24 +8,31 @@ public class AttackBehaviorAI : Creature
     BehaviorTreeRunner btRunner;
 
     public AudioClip DeadClip;
+    public bool isBoss;
     private void Start()
     {
         originPosition = transform.position;
 
         btRunner = new BehaviorTreeRunner(SettingAttackBT());
         Hp = MaxHp;
+        if (gameObject.CompareTag("Enemy") && !isBoss)
+        {
+            Managers.Game.AddEnemyCount();
+        }
     }
 
     private void Update()
     {
-        if (Managers.Game.isStart && !isDeath)
+        if (!isDead)
         {
-            if (gameObject.name == "Boss")
+            if (Managers.Game.gameState == Define.EGameState.Room1 && gameObject.CompareTag("Enemy"))
             {
-                if (Managers.Game.isStart2)
+                if (!isBoss)
+                {
                     btRunner.Operate();
+                }
             }
-            else
+            else if (Managers.Game.gameState == Define.EGameState.Room2 && isBoss)
             {
                 btRunner.Operate();
             }
@@ -66,7 +73,7 @@ public class AttackBehaviorAI : Creature
 
     NodeState DoAttack()
     {
-        if (Target != null)
+        if (Target != null && !Target.GetComponent<Creature>().isDead)
         {
             Animator.SetTrigger("Attack");
             return NodeState.Success;
@@ -81,7 +88,8 @@ public class AttackBehaviorAI : Creature
         if (overlaps != null && overlaps.Length > 0)
         {
             Target = overlaps[0].transform;
-            return NodeState.Success;
+            if (!Target.GetComponent<Creature>().isDead)
+                return NodeState.Success;
         }
 
         Target = null;
@@ -123,7 +131,7 @@ public class AttackBehaviorAI : Creature
 
     public override void OnDamaged()
     {
-        if (!isDamaged && !isDeath)
+        if (!isDamaged && !isDead)
         {
             base.OnDamaged();
             Animator.SetTrigger("Hit");
@@ -131,7 +139,7 @@ public class AttackBehaviorAI : Creature
             {
                 OnDead();
                 AudioSource.PlayOneShot(DeadClip);
-                isDeath = true;
+                isDead = true;
                 Managers.Game.EnemyDead();
                 Destroy(gameObject, 3f);
             }
@@ -145,9 +153,9 @@ public class AttackBehaviorAI : Creature
     public override void OnDead()
     {
         base.OnDead();
-        if(gameObject.name == "Boss")
+        if (isBoss)
         {
-            Managers.Game.isBossDead = true;
+            Managers.Game.ChangeNextState();
         }
     }
 

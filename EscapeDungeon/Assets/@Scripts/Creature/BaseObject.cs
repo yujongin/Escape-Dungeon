@@ -1,8 +1,6 @@
-using Unity.VisualScripting;
-using UnityEngine;
-using System.Collections.Generic;
-using static Define;
 using System.Collections;
+using UnityEngine;
+using static Define;
 public class BaseObject : InitBase
 {
     public EObjectType ObjectType { get; protected set; } = EObjectType.None;
@@ -16,6 +14,8 @@ public class BaseObject : InitBase
     //private HurtFlashEffect HurtFlash;
     [HideInInspector]
     public bool isDamaged = false;
+    [HideInInspector]
+    public bool isDead = false;
     public override bool Init()
     {
         if (base.Init() == false)
@@ -38,11 +38,15 @@ public class BaseObject : InitBase
     public virtual void OnDamaged()
     {
         //HurtFlash.Flash();
-        StartCoroutine(DamagedAnimation());
+        if (!isDead)
+        {
+            StartCoroutine(DamagedAnimation());
+        }
     }
 
     public virtual void OnDead()
     {
+        isDead = true;
         Animator.SetTrigger("Death");
     }
     #endregion

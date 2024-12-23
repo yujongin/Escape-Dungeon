@@ -41,7 +41,7 @@ public class PlayerController : Creature
     }
     void Update()
     {
-        if (isDeath || Managers.Game.isClear) return;
+        if (isDead || Managers.Game.gameState == Define.EGameState.Clear) return;
         HandleMovement();
 
         //Attack
@@ -214,12 +214,10 @@ public class PlayerController : Creature
             base.OnDamaged();
             Hp -= 3f;
             HPBar.value = Hp / MaxHp;
-            if (Hp <= 0)
+            if (Hp <= 0 && !isDead)
             {
                 OnDead();
-                Managers.Game.isStart = false;
                 Managers.Game.EnableGameOverPanel();
-                isDeath = true;
             }
         }
     }

@@ -27,7 +27,7 @@ public class BrokenWall : MonoBehaviour
         else if (hitCount >= 4)
         {
             transform.DOMoveY(-4.2f, 1f);
-            Managers.Game.isStart = true;
+            Managers.Game.ChangeNextState();
             return;
         }
 

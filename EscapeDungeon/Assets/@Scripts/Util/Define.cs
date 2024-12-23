@@ -15,10 +15,8 @@ public static class Define
     {
         None,
         Room1,
-        Room1Clear,
         Room2,
-        Room2Clear,
-
+        Clear,
     }
 
     public enum ECreatureType
